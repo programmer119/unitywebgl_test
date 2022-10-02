@@ -56,11 +56,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/webbuild4.loader.js";
+      var loaderUrl = buildUrl + "/build5.loader.js";
       var config = {
-        dataUrl: buildUrl + "/webbuild4.data",
-        frameworkUrl: buildUrl + "/webbuild4.framework.js",
-        codeUrl: buildUrl + "/webbuild4.wasm",
+        dataUrl: buildUrl + "/build5.data",
+        frameworkUrl: buildUrl + "/build5.framework.js",
+        codeUrl: buildUrl + "/build5.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Metafest",
@@ -109,7 +109,7 @@
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
+            window.vuplex.SetFullscreen(1)/*https://support.vuplex.com/articles/webgl-fullscreen*/;
           };
         }).catch((message) => {
           alert(message);

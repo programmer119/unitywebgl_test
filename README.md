@@ -1,2 +1,0 @@
-# unitywebgl_test
- 

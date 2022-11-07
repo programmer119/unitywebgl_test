@@ -55,7 +55,17 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
+    const MOBILE_BUILD_URL = "Build_Mobile";
+    const OTHER_BUILD_URL = "Build_Other";
+
+
+    var buildUrl = OTHER_BUILD_URL;
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+    {
+        buildUrl = MOBILE_BUILD_URL;
+    }
+
+     
       var loaderUrl = buildUrl + "/build_unity.loader.js";
       var config = {
         dataUrl: buildUrl + "/build_unity.data",
@@ -64,7 +74,7 @@
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Metafest device _ OTHER(Desktop)",
-        productVersion: "0.2",
+        productVersion: "0.1",
         showBanner: unityShowBanner,
       };
 
@@ -91,7 +101,7 @@
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = window.innerHeight + 'px';
 
-        unityShowBanner('WebGL builds are not supported on mobile devices.');
+        //unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
@@ -109,7 +119,7 @@
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
+            window.vuplex.SetFullscreen(1)/*https://support.vuplex.com/articles/webgl-fullscreen*/;
           };
         }).catch((message) => {
           alert(message);

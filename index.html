@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Metafest v1.1</title>
+    <title>Unity WebGL Player | Metafest device _ OTHER(Desktop)</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Metafest v1.1</div>
+        <div id="unity-build-title">Metafest device _ OTHER(Desktop)</div>
       </div>
     </div>
     <script>
@@ -56,15 +56,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/build6.loader.js";
+      var loaderUrl = buildUrl + "/build_unity.loader.js";
       var config = {
-        dataUrl: buildUrl + "/build6.data",
-        frameworkUrl: buildUrl + "/build6.framework.js",
-        codeUrl: buildUrl + "/build6.wasm",
+        dataUrl: buildUrl + "/build_unity.data",
+        frameworkUrl: buildUrl + "/build_unity.framework.js",
+        codeUrl: buildUrl + "/build_unity.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "Metafest v1.1",
-        productVersion: "0.1",
+        productName: "Metafest device _ OTHER(Desktop)",
+        productVersion: "0.2",
         showBanner: unityShowBanner,
       };
 
@@ -109,7 +109,7 @@
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
-            window.vuplex.SetFullscreen(1)/*https://support.vuplex.com/articles/webgl-fullscreen*/;
+            unityInstance.SetFullscreen(1);
           };
         }).catch((message) => {
           alert(message);
